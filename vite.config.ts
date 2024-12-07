@@ -3,9 +3,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  build: {
-    rollupOptions: {
-      external: ['react-router-dom'], // ここで外部モジュールを指定
-    },
-  },
+  base: 'vite-bell', /* 追加 */
 });
