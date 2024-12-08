@@ -1,25 +1,19 @@
-import React from 'react';
+import { useEffect, useState } from "react";
+import Bell from "./components/bell";
+import { BellIcon } from "./components/bell";
+import { SensorApp } from "./components/sensor";
 
 const App: React.FC = () => {
+
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>Hello, World! にゃん</h1>
-      <p>これは適当なReactアプリの例にゃん。</p>
-      <button
-        onClick={() => alert('にゃんにゃん！ボタンがクリックされたにゃ！')}
-        style={{
-          padding: '10px 20px',
-          fontSize: '16px',
-          backgroundColor: '#6200ea',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-        }}
-      >
-        Click Me にゃん
-      </button>
+    <>
+    <div style={{ textAlign: 'center', marginTop: '50px' ,backgroundColor: 'red'}}>
+      <h1>除夜の鐘</h1>
+        <BellIcon />
+        <Bell />
+        <SensorApp/>
     </div>
+    </>
   );
 };
 
