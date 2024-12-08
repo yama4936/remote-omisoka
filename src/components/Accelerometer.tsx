@@ -27,7 +27,7 @@ export const Accelerometer: React.FC = () => {
 
     return (
         <div id="result_acc">
-            <h3>重力加速度</h3>
+            <h3>加速度センサー</h3>
             <p>X：{acceleration.x.toFixed(2)} (m/s²)</p>
             <p>Y：{acceleration.y.toFixed(2)} (m/s²)</p>
             <p>Z：{acceleration.z.toFixed(2)} (m/s²)</p>
