@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Audio } from "./Audio";
 
 // 加速度センサーコンポーネント
 export const Accelerometer: React.FC = () => {
@@ -21,12 +22,22 @@ export const Accelerometer: React.FC = () => {
         window.addEventListener("devicemotion", handleMotion);
 
         return () => {
-            if( acceleration.x >= 3 ){
-                alert("振られてるヨ!")
-            }
             window.removeEventListener("devicemotion", handleMotion);
         };
     }, []);
+
+    // 振られている状態を検知する
+    let count:number;
+    useEffect(() => {
+        if (acceleration.x >= 3) {
+            count++;
+            alert(`${count}回振られた`)
+        }
+        if (count > 10){
+            alert("10回振られたyo!!!!");
+            <Audio/>
+        }
+    }, [acceleration]);
 
     return (
         <div id="result_acc">

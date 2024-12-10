@@ -1,7 +1,6 @@
-import Bell from "./components/bell";
-import { BellIcon } from "./components/bell";
-import { SensorApp } from "./components/sensor";
-import OrientationComponent from "./components/permit"
+import { BellIcon } from "./components/Bell";
+import { SensorApp } from "./components/Sensor";
+import OrientationComponent from "./components/Permit"
 
 const App: React.FC = () => {
 
@@ -11,7 +10,6 @@ const App: React.FC = () => {
     <OrientationComponent />
       <h1>疑似除夜の鐘</h1>
         <BellIcon />
-        <Bell />
         <SensorApp/>
     </div>
     </>

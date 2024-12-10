@@ -6,11 +6,4 @@ export const BellIcon = () => {
     );
 };
 
-export default function Bell() {
-    return (
-        <section>
-            <h1>practice</h1>
-        </section>
-    );
-}
 
