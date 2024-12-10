@@ -21,6 +21,9 @@ export const Accelerometer: React.FC = () => {
         window.addEventListener("devicemotion", handleMotion);
 
         return () => {
+            if( acceleration.y >= 3 ){
+                alert('振られてるヨ!')
+            }
             window.removeEventListener("devicemotion", handleMotion);
         };
     }, []);

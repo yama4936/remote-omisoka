@@ -8,11 +8,11 @@ const App: React.FC = () => {
   return (
     <>
     <div style={{ textAlign: 'center', marginTop: '50px' ,backgroundColor: 'white'}}>
-      <h1>除夜の鐘</h1>
+    <OrientationComponent />
+      <h1>疑似除夜の鐘</h1>
         <BellIcon />
         <Bell />
         <SensorApp/>
-        <OrientationComponent />
     </div>
     </>
   );
