@@ -5,5 +5,3 @@ export const BellIcon = () => {
         </svg>
     );
 };
-
-

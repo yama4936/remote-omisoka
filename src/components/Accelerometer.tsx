@@ -29,7 +29,6 @@ export const Accelerometer: React.FC = () => {
     const ShakeDetector: React.FC<{ acceleration: { x: number } }> = ({ acceleration }) => {
         const [count, setCount] = useState(0);
         const [message, setMessage] = useState<string | null>(null);
-        const [showAudio, setShowAudio] = useState(false);
 
         useEffect(() => {
             if (acceleration.x >= 3) {
@@ -39,18 +38,18 @@ export const Accelerometer: React.FC = () => {
                     return newCount;
                 });
             }
-            if (count >= 10 && !showAudio) {
+            if (count >= 10 ) {
                 setMessage("10回振られたよ!!!!");
-                setShowAudio(true); // Audio を表示
+                <Audio />
             }
-        }, [acceleration.x, count, showAudio]);
+        }, [acceleration.x, count]);
 
         return (
             <div>
                 <div id="shake-message">
                     {message && <p>{message}</p>}
                 </div>
-                {showAudio && <Audio />}
+                <Audio />
             </div>
         );
     };
