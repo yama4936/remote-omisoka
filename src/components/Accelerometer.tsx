@@ -29,20 +29,27 @@ export const Accelerometer: React.FC = () => {
     const ShakeDetector: React.FC<{ acceleration: { x: number } }> = ({ acceleration }) => {
         const [count, setCount] = useState(0);
         const [message, setMessage] = useState<string | null>(null);
+        const [lastUpdate, setLastUpdate] = useState(Date.now());
 
         useEffect(() => {
-            if (acceleration.x >= 3) {
-                setCount(prevCount => {
-                    const newCount = prevCount + 1;
-                    setMessage(`${newCount}回振られた`);
-                    return newCount;
-                });
+            const now = Date.now();
+            if (now - lastUpdate > 500) { // 更新間隔を500msに制限
+                if (acceleration.x >= 3) {
+                    setCount(prevCount => prevCount + 1);
+                }
+                setLastUpdate(now);
             }
-            if (count >= 10 ) {
+        }, [acceleration.x, lastUpdate]);
+
+        useEffect(() => {
+            if (count > 0) {
+                setMessage(`${count}回振られた`);
+            }
+            if (count >= 10) {
                 setMessage("10回振られたよ!!!!");
-                <Audio />
+                <Audio />;
             }
-        }, [acceleration.x, count]);
+        }, [count]);
 
         return (
             <div>

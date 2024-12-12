@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: 'vite-bell', /* 追加 */
+  base: 'bell', /* 追加 */
 });
