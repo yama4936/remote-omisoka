@@ -27,39 +27,43 @@ export const Accelerometer: React.FC = () => {
     }, []);
 
     const ShakeDetector: React.FC<{ acceleration: { x: number } }> = ({ acceleration }) => {
-        const [count, setCount] = useState(0);
-        const [message, setMessage] = useState<string | null>(null);
-        const [lastUpdate, setLastUpdate] = useState(Date.now());
+        let count:number = 0;
+        const [lastUpdate, setLastUpdate] = useState(Date.now()); // 最後に更新された時刻
+        const [firstUpdate, setFirstUpdate] = useState(0); // 最初に振られた時刻
 
         useEffect(() => {
             const now = Date.now();
-            if (now - lastUpdate > 500) { // 更新間隔を500msに制限
-                if (acceleration.x >= 3) {
-                    setCount(prevCount => prevCount + 1);
+            setLastUpdate(now);
+
+            // 最初の振動時刻を記録
+            if (acceleration.x >= 3) {
+                if (firstUpdate === null) {
+                    setFirstUpdate(now);
                 }
-                setLastUpdate(now);
+                // 振られた回数を更新
+                count++;
             }
-        }, [acceleration.x, lastUpdate]);
+        }, [acceleration.x]);
 
         useEffect(() => {
-            if (count > 0) {
-                setMessage(`${count}回振られた`);
-            }
-            if (count >= 10) {
-                setMessage("10回振られたよ!!!!");
-                <Audio />;
+            // 振られた回数が10回を超えたら Audio を再生
+            if (count > 10) {
+                console.log("Shake count exceeded 10. Playing audio...");
+                <Audio />
             }
         }, [count]);
 
+        // 経過時間を計算
+        const elapsedTime = firstUpdate !== null ? lastUpdate - firstUpdate : 0;
+
         return (
-            <div>
-                <div id="shake-message">
-                    {message && <p>{message}</p>}
-                </div>
-                <Audio />
+            <div id="shake-message">
+                <p>{count}回振られた</p>
+                <p>経過時間: {elapsedTime}ms</p>
             </div>
         );
     };
+
 
     return (
         <div >
