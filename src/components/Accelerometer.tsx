@@ -6,7 +6,7 @@ import Sound from "../assets/audio/bell.mp3";
 export const Accelerometer: React.FC = () => {
     const [acceleration, setAcceleration] = useState({ x: 0, y: 0, z: 0 });
     const [count, setCount] = useState(0);
-    const [play] = useSound(Sound);
+    const [play] = useSound(Sound, { volume: 0.8 }); // 音声の再生フック
 
     useEffect(() => {
         // モーションイベントのハンドラ
@@ -32,14 +32,19 @@ export const Accelerometer: React.FC = () => {
         // 振動の判定ロジック
         const threshold = 3; // 振動の閾値
 
-        if (Math.abs(acceleration.x) > threshold ) {
+        if (Math.abs(acceleration.x) > threshold) {
             setCount((prevCount) => prevCount + 1);
         }
-        if ( count > 100){
+        if (count > 100) {
             play();
             setCount(0);
         }
-    }, [acceleration, play]);
+    }, [acceleration, count, play]);
+
+    // ボタンで音声再生
+    const handlePlaySound = () => {
+        play();
+    };
 
     return (
         <div>
@@ -52,6 +57,9 @@ export const Accelerometer: React.FC = () => {
                 <p>X：{acceleration.x.toFixed(2)} (m/s²)</p>
                 <p>Y：{acceleration.y.toFixed(2)} (m/s²)</p>
                 <p>Z：{acceleration.z.toFixed(2)} (m/s²)</p>
+            </div>
+            <div>
+                <button onClick={handlePlaySound}>音声を再生する</button>
             </div>
         </div>
     );
