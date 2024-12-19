@@ -1,5 +1,5 @@
+import image from "../assets/image/bell.jpg";
+
 export const BellIcon = () => {
-    return (
-        <img aria-braillelabel="bell.jpg"></img>
-    );
+    return <img src={image} alt="Bell Icon" />;
 };
