@@ -44,8 +44,8 @@ export const Accelerometer: React.FC = () => {
     const [play] = useSound(audioUrl, {
         volume: 0.8,
         onload: () => {
-            console.log("Sound loaded");
-            setIsLoaded(true);
+            console.log("Sound loaded"); // ロード完了時のログ
+            setIsLoaded(true); // ロード完了時に表示を切り替える
         },
         onerror: (error: Error) => {
             console.error("Error loading sound:", error.message);
@@ -92,6 +92,11 @@ export const Accelerometer: React.FC = () => {
 
     const progress = (count / countConfig) * 100;
 
+    // ロード中の場合の表示
+    if (!isLoaded) {
+        return <div>Loading...</div>; // ロード中の表示
+    }
+
     return (
         <div className={classes.gaugeContainer}>
             <div
@@ -101,7 +106,15 @@ export const Accelerometer: React.FC = () => {
         </div>
     );
 };
-/*
+/* 本番環境
+        <div className={classes.gaugeContainer}>
+            <div
+                className={classes.gaugeProgress}
+                style={{ width: `${progress}%` }}
+            ></div>
+        </div>
+*/
+/* テスト環境
     <div>
       <h3>振動検知</h3>
       <p>振られた回数: {count} 回</p>
