@@ -1,6 +1,6 @@
 import { BellIcon } from "./components/Bell";
 import { SensorApp } from "./components/Sensor";
-import OrientationComponent from "./components/Permit"
+import OrientationComponent from "./components/Permit";
 
 const App: React.FC = () => {
 
