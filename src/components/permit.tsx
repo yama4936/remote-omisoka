@@ -53,7 +53,7 @@ const OrientationPermission: React.FC = () => {
         <div>
           {os === "iphone" ? (
             <button onClick={permitDeviceOrientationForSafari}>
-              DeviceOrientationを許可する (iPhone)
+              センサーを有効にする (iPhone)
             </button>
           ) : os === "android" ? (
             <button onClick={enableAndroidSensor}>
