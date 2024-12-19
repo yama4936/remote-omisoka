@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import useSound from "use-sound";
-import Sound from "../assets/audio/bell.mp3";
+import Sound from "/bell.mp3";
 
 // 加速度センサーコンポーネント
 export const Accelerometer: React.FC = () => {
