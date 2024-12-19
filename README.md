@@ -1,50 +1,39 @@
-# React + TypeScript + Vite
+# Remote大晦日
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Webサイトから除夜の鐘を鳴らし、大晦日気分を味わうことが出来ます
 
-Currently, two official plugins are available:
+## 概要
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- このプロジェクトは何をするものか？
+  
+  大晦日気分を味わえます
+- なぜこのプロジェクトが必要なのか？
+  
+  寒い中外には出たくない、しかし除夜の鐘を鳴らしたい!! そんなあなたに
+- 主な機能は何か？
+  
+  ユーザー体験を得ながら大晦日気分を味わう
 
-## Expanding the ESLint configuration
+## インストール方法
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+以下の手順でプロジェクトをローカル環境にインストールしてください。
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```bash
+リポジトリをクローン
+git clone https://github.com/yama4936/remote-omisoka.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 使い方
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+実行方法の例
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+localhostの場合
 ```
+npm i
+
+npm run dev
+```
+
+## ライセンス
+
+このプロジェクトはMITライセンスのもとで公開されています。
