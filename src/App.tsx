@@ -6,12 +6,12 @@ const App: React.FC = () => {
 
   return (
     <>
-    <div style={{ textAlign: 'center', marginTop: '50px' ,backgroundColor: 'white'}}>
-    <OrientationComponent />
-      <h1>疑似除夜の鐘</h1>
+      <div style={{ textAlign: 'center', marginTop: '50px', backgroundColor: 'white' }}>
+        <OrientationComponent />
+        <h1>疑似除夜の鐘</h1>
         <BellIcon />
-        <SensorApp/>
-    </div>
+        <SensorApp />
+      </div>
     </>
   );
 };
