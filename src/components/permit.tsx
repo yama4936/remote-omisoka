@@ -24,10 +24,10 @@ const OrientationPermission: React.FC = () => {
       const response = await (DeviceOrientationEvent as any).requestPermission();
       if (response === "granted") {
         setPermissionGranted("granted");
-        alert("センサーの使用が許可されました。");
+        console.log("センサーの使用が許可されました。");
       } else {
         setPermissionGranted("denied");
-        alert("センサーの許可が得られませんでした。");
+        console.log("センサーの許可が得られませんでした。");
       }
     } catch (error) {
       setPermissionGranted("denied");
