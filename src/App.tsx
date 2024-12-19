@@ -9,6 +9,7 @@ const App: React.FC = () => {
       <div style={{ textAlign: 'center', marginTop: '50px', backgroundColor: 'white' }}>
         <OrientationComponent />
         <h1>疑似除夜の鐘</h1>
+        <p>＊音量を大きくしてください</p>
         <BellIcon />
         <SensorApp />
       </div>
