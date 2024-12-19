@@ -49,11 +49,8 @@ const OrientationPermission: React.FC = () => {
 
   return (
     <div>
-      <h2>センサー使用許可</h2>
-
       {permissionGranted === "pending" ? (
         <div>
-          <p>センサーの使用許可を取得してください。</p>
           {os === "iphone" ? (
             <button onClick={permitDeviceOrientationForSafari}>
               DeviceOrientationを許可する (iPhone)
