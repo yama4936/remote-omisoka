@@ -25,6 +25,8 @@ git clone https://github.com/yama4936/remote-omisoka.git
 
 ## 使い方
 
+https://yama4936.github.io/remote-omisoka を開く
+
 実行方法の例
 
 localhostの場合
